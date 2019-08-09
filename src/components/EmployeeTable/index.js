@@ -1,8 +1,7 @@
 import React from 'react';
 
 
-
-const EmployeeTable = (({personalDetails, jobDetails, benefitsDetails, onUpdateForm})=>{
+const EmployeeTable = (({personalDetails, jobDetails, benefitsDetails, onUpdateForm}) => {
         return (
             <div>
             <div>
@@ -12,11 +11,11 @@ const EmployeeTable = (({personalDetails, jobDetails, benefitsDetails, onUpdateF
                     <li> Middle Name {personalDetails.middleName}</li>
                     <li> Last Name {personalDetails.lastName}</li>
                     <li> Gender {personalDetails.gender}</li>
-                    <li> Title {personalDetails.titile}</li>
-                    <li> Address {`${personalDetails.address.unitNumber} ${personalDetails.address.street} ${personalDetails.address.city} ${personalDetails.address.province} ${personalDetails.address.region} ${personalDetails.address.zipCode} `}</li>
+                    <li> Title {personalDetails.title}</li>
+                    <li> Address {`${personalDetails.address.unitNumber} ${personalDetails.address.street} ${personalDetails.address.city} ${personalDetails.address.province} ${personalDetails.address.region} ${personalDetails.address.zipCode}`}</li>}
                 </ul>
             </div>
-            <div>
+             <div>
                 <h3> CONTACT DETAILS</h3>
                 <ul>
                     <li> Landline {personalDetails.contact.landlineNumber}</li>
@@ -38,17 +37,11 @@ const EmployeeTable = (({personalDetails, jobDetails, benefitsDetails, onUpdateF
                 <h3> EMPLOYEE BENEFITS </h3>
                 <ul>
                     <li> SSS {benefitsDetails.SSS}</li>
-                    <li> PhilHealth{benefitsDetails.PhilHealth}</li>
+                    <li> PhilHealth{benefitsDetails.Philhealth}</li>
                     <li> PAGIBIG {benefitsDetails.PAGIBIG}</li>
                     <li> BIR {benefitsDetails.BIR}</li>
                 </ul>
             </div>
-            {
-                // this.state.onEdit ? 
-                // <div>
-                //     {this.renderForm(personalDetails,jobDetails,benefitsDetails)}
-                // </div> : null
-            }
             <button onClick= {onUpdateForm}> Update </button>
         </div>
 

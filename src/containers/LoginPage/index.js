@@ -1,19 +1,33 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Router, Route, NavLink} from 'react-router-dom';
+import Container from '@material-ui/core/Container';
+
 
 class LoginPage extends Component {
+
     render() {
         return (
-            <form>
+        <Container maxWidth="sm">
+            <div>
+                <Container>
                 <label>
                     Username:
                 <input type="text" name="username" />
                 </label>
+                </Container>
+                <Container>
                 <label>
-                    Password:
-                 <input type="password" name="password" />
+                    Password:                 
+                    <input type="password" name="password" />
                 </label>
-                <input type="submit" value="Submit" />
-            </form>
+                </Container>
+                <Container>
+                <button onClick={() => {
+                    this.props.history.push("/employeepage")
+                }}>Login</button>
+                </Container>
+            </div>
+        </Container>
         )
     }
 }

@@ -31,7 +31,7 @@ export const readEmployees = () => async dispatch => {
 
 export const createEmployee = (payload) => async dispatch => {
 
-    const response = await axios.post(`${ROOT_URL}/employee`, payload);
+    const response = await axios.post(`${ROOT_URL}/employees`, payload);
 
     if (response.status === 200) {
         dispatch({
@@ -49,9 +49,10 @@ export const createEmployee = (payload) => async dispatch => {
 }
 
 
-export const updateEmployee = (payload) => async dispatch => {
+export const updateEmployee = (id,payload) => async dispatch => {
 
-    const response = await axios.put(`${ROOT_URL}/employee/${payload.id}`, payload.data);
+    const response = await axios.put(`${ROOT_URL}/employee/${id}`, payload);
+    console.log(response)
     if (response.status === 200) {
         dispatch({
             type: EMPLOYEE_UPDATE_SUCCESS,
@@ -65,8 +66,6 @@ export const updateEmployee = (payload) => async dispatch => {
             }
         })
     }
-
-
 }
 
 
@@ -76,7 +75,7 @@ export const deleteEmployee = (payload) => async dispatch => {
     if (response.status === 200) {
         dispatch({
             type: EMPLOYEE_DELETE_SUCCESS,
-            payload: response.data
+            payload: payload.id
         })
     } else {
         dispatch({

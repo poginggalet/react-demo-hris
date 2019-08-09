@@ -29,13 +29,12 @@ export default function (state = INITIAL_STATE, action) {
         case EMPLOYEE_UPDATE_SUCCESS:
             return {
                 ...state,
-                employeeInfo: action.payload,
-                employees: state.employee.map(employee => employee.id === action.payload.id ? action.payload : employee),
+                employees: state.employees.map(employee => employee.id === action.payload._id ? action.payload : employee),
             }
         case EMPLOYEE_DELETE_SUCCESS:
             return {
                 ...state,
-                employees: state.employee.filter(employee => employee !== action.payload),
+                employees: state.employees.filter(employee => employee.id !== action.payload),
             }
         case EMPLOYEE_ERROR:
             return {
